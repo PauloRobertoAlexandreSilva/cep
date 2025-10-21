@@ -17,7 +17,9 @@ First, run the development server:
 
 > git pull origin main
 ```
+
 ---
+
 
 ```
 git init                             » inicializa um repositório vazio  
