@@ -1,7 +1,24 @@
-# cep
-consulta de endereço pelo CEP utilizando VIACEP
+## CEP
 
-### GIT
+Esse é um aplicativo que utiliza HTML5, CSS e Javascript para consultar o CEP consumindo VIACEP
+
+Abra [CEP](https://paulorobertoalexandresilva.github.io/cep/) no seu `navegador` para ver o resultado
+
+
+#### GIT
+---
+
+First, run the development server:
+
+```bash
+> git init
+
+> git remote add origin https://github.com/PauloRobertoAlexandreSilva/cep.git
+
+> git pull origin main
+```
+---
+
 ```
 git init                             » inicializa um repositório vazio  
 git config --list                    » mostra as informações da configuração  
@@ -21,3 +38,4 @@ git merge BRANCH                     » acrescenta BRANCH ao branch atual
 git pull                             » carrega as alterações que estão no git na máquina local  
 git push origin main                 » efetiva o envio dos arquivos alterados e o commit para o controle git  
 ```
+#### imagens
