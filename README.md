@@ -2,7 +2,7 @@
 
 Esse é um aplicativo que utiliza HTML5, CSS e Javascript para consultar o CEP consumindo VIACEP
 
-Abra [CEP](https://github.com/PauloRobertoAlexandreSilva/cep) no seu `navegador` para ver o resultado
+Abra [CEP](https://paulorobertoalexandresilva.github.io/cep/) no seu `navegador` para ver o resultado
 
 
 #### GIT
