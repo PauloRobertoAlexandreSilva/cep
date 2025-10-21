@@ -1,40 +1,77 @@
-function WS(url, retorno)
-{
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            retorno(JSON.parse(this.responseText));
-        }
+window.addEventListener("load", function() {
+    const inputCEP = document.getElementById("inputCEP");
+    const inputRua = document.getElementById('inputRua');
+    const inputBairro = document.getElementById('inputBairro');
+    const inputCidade = document.getElementById('inputCidade');
+    const inputUF = document.getElementById('inputUF');
+    const inputDDD = document.getElementById('inputDDD');
+    const inputIBGE = document.getElementById('inputIBGE');
+    const divAlerta = document.getElementById("divAlerta");
+    const btnConsultar = document.getElementById("btnConsultar");
+
+     function limpaFormulario() {
+        inputRua.value="";
+        inputBairro.value="";
+        inputCidade.value="";
+        inputUF.value="";
+        inputDDD.value="";
+        inputIBGE.value="";
+        divAlerta.style.display = "none";
     }
-    xhr.open("GET", url, true);
-    xhr.send();
-};
 
+    btnConsultar.addEventListener("click", function() {
+        limpaFormulario();
 
-function alerta(texto)
-{
-    document.getElementById("resultText").innerHTML = texto;
-    setTimeout( function() { document.getElementById("resultText").innerHTML = ""; }, 3000)
-}
+        //Nova variável "cep" somente com dígitos.
+        let cep = inputCEP.value.replace(/\D/g, '');
+        console.log(cep);
 
-function ConsultaCEP(data)
-{
-    var resultado = document.getElementById("resultText");
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
 
-    resultado.innerHTML = 'Logradouro: ' + data.logradouro + ' ' + data.complemento + '<br>';
-    resultado.innerHTML += 'Bairro: ' + data.bairro + '<br>';
-    resultado.innerHTML += 'Município: ' + data.localidade + '<br>';
-    resultado.innerHTML += 'Estado: ' + data.estado + ' (' + data.uf + ')<br>';
-    resultado.innerHTML += 'Região: ' + data.regiao + '<br>';
-}
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
 
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+                const ws = "https://viacep.com.br/ws/";
+                let url = ws + cep + "/json/";
 
-window.addEventListener('load', function() {
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener("loadstart", function(){
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    inputRua.value="...";
+                    inputBairro.value="...";
+                    inputCidade.value="...";
+                    inputUF.value="...";
+                    inputDDD.value="...";
+                    inputIBGE.value="...";
+                });
+                xhr.addEventListener("load", function(result) {
+                    let obj = JSON.parse(result.target.response);
 
-    document.getElementById("btnConsultar").addEventListener("click", function() {
-        var cep = document.getElementById("cep");
-        var url = 'https://viacep.com.br/ws/' + cep.value + '/json/';
+                    if( obj.erro) {
+                        //cep não encontrado.
+                        divAlerta.innerHTML="<strong>Erro!</strong> CEP não encontrado.";
+                        divAlerta.style.display = "block";
+                        return;
+                    }
 
-        WS(url, ConsultaCEP);
-    });
+                    inputCEP.value = obj.cep;
+                    inputRua.value = obj.logradouro + " " + obj.complemento;
+                    inputBairro.value = obj.bairro;
+                    inputCidade.value = obj.localidade;
+                    inputUF.value = obj.estado + "(" + obj.uf + ")";
+                    inputDDD.value = obj.ddd;
+                    inputIBGE.value = obj.ibge;
+                });
+                xhr.open("GET", url);
+                xhr.send();
+            } else {
+                //cep é inválido.
+                divAlerta.innerHTML="<strong>Erro!</strong> CEP inválido.";
+                divAlerta.style.display = "block";
+            }
+        }
+    })
 });

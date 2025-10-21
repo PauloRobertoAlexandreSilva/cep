@@ -48,17 +48,14 @@ self.addEventListener('activate', event => {
             const cache = await caches.open(versao);
             const cachedResponse = await cache.match(event.request);
             if (cachedResponse) {
-                //console.log('retornou do cache',event.request.url);
-                event.waitUntil(cache.add(event.request));
                 return cachedResponse;
-            }
-            try {
-                const networkResponse = await fetch(event.request);
-                return networkResponse;
-            } catch (error) {
-                const cache = await caches.open(versao);
-                const offlinePage = await cache.match('/offline.html'); // A pre-cached offline page
-                return offlinePage || new Response('<h1>Você está offline!</h1>', { headers: { 'Content-Type': 'text/html' } });
+            } else {
+                try {
+                    const networkResponse = await fetch(event.request);
+                    return networkResponse;
+                } catch (error) {
+                    return offline.html;
+                }
             }
         })()
     );

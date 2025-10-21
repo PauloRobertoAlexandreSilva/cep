@@ -19,18 +19,18 @@ window.addEventListener('load', event => {
 
         deferredPrompt.userChoice.then(function(choiceResult) {
             if(choiceResult.outcome == 'dismissed') {
-                console.log('Usuário não aceitou a instalação');
+                //console.log('Usuário não aceitou a instalação');
             }
             else {
-                console.log('Usuário aceitou a instalou');
+                //console.log('Usuário aceitou a instalou');
             }
             deferredPrompt = null;
         });
     });
     window.onappinstalled = function() {
-        console.log('👍', 'Obrigado por instalar nosso app!');
+        //console.log('👍', 'Obrigado por instalar nosso app!');
     };
     window.addEventListener('appinstalled', event => {
-        console.log('👍', 'app instalado', event);
+        //console.log('👍', 'app instalado', event);
     });
 });

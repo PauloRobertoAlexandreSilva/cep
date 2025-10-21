@@ -7,6 +7,8 @@
 
 body { background-color: var(--cor1); }
 
+#divAlerta { display: none;}
+
 .splash-logo {
     z-index: 10;
     position: absolute;
