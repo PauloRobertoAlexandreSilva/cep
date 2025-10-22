@@ -6,9 +6,7 @@
     "background_color": "#616161",
     "display": "standalone",
     "orientation": "portrait",
-    "id":"/",
-    "Scope": "/",
-    "start_url": "/",
+    "start_url": "index.html",
     "categories": ["productivity", "utilities", "social"],
     "description": "Acompanhe suas tarefas diárias e planeje seus projetos com eficiência.",
     "icons": [
