@@ -1,11 +1,13 @@
 :root {
-    --cor1: #ffffff;
-    --cor2: #a1a1a1;
-    --cor3: #1C3257;
+    --cor1: #FAD606;
+    --cor2: #003954;
+    --cor3: #0180B7;
     --cor4: #FB8C00;
 }
 
-body { background-color: var(--cor1); }
+body { background-color: var(--cor1); color: var(--cor2); font-weight: bolder; }
+input, button { font-weight: bolder !important;}
+nav, nav a span { background-color: var(--cor2); color:  var(--cor3); }
 
 #divAlerta { display: none;}
 

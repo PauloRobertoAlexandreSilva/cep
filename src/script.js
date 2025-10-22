@@ -10,12 +10,12 @@ window.addEventListener("load", function() {
     const btnConsultar = document.getElementById("btnConsultar");
 
      function limpaFormulario() {
-        inputRua.value="";
-        inputBairro.value="";
-        inputCidade.value="";
-        inputUF.value="";
-        inputDDD.value="";
-        inputIBGE.value="";
+        inputRua.innerHTML="";
+        inputBairro.innerHTML="";
+        inputCidade.innerHTML="";
+        inputUF.innerHTML="";
+        inputDDD.innerHTML="";
+        inputIBGE.innerHTML="";
         divAlerta.style.display = "none";
     }
 
@@ -24,7 +24,6 @@ window.addEventListener("load", function() {
 
         //Nova variável "cep" somente com dígitos.
         let cep = inputCEP.value.replace(/\D/g, '');
-        console.log(cep);
 
         //Verifica se campo cep possui valor informado.
         if (cep != "") {
@@ -40,12 +39,12 @@ window.addEventListener("load", function() {
                 const xhr = new XMLHttpRequest();
                 xhr.addEventListener("loadstart", function(){
                     //Preenche os campos com "..." enquanto consulta webservice.
-                    inputRua.value="...";
-                    inputBairro.value="...";
-                    inputCidade.value="...";
-                    inputUF.value="...";
-                    inputDDD.value="...";
-                    inputIBGE.value="...";
+                    inputRua.innerHTML="...";
+                    inputBairro.innerHTML="...";
+                    inputCidade.innerHTML="...";
+                    inputUF.innerHTML="...";
+                    inputDDD.innerHTML="...";
+                    inputIBGE.innerHTML="...";
                 });
                 xhr.addEventListener("load", function(result) {
                     let obj = JSON.parse(result.target.response);
@@ -58,12 +57,12 @@ window.addEventListener("load", function() {
                     }
 
                     inputCEP.value = obj.cep;
-                    inputRua.value = obj.logradouro + " " + obj.complemento;
-                    inputBairro.value = obj.bairro;
-                    inputCidade.value = obj.localidade;
-                    inputUF.value = obj.estado + "(" + obj.uf + ")";
-                    inputDDD.value = obj.ddd;
-                    inputIBGE.value = obj.ibge;
+                    inputRua.innerHTML = obj.logradouro + " " + obj.complemento;
+                    inputBairro.innerHTML = obj.bairro;
+                    inputCidade.innerHTML = obj.localidade;
+                    inputUF.innerHTML = obj.estado + "(" + obj.uf + ")";
+                    inputDDD.innerHTML = obj.ddd;
+                    inputIBGE.innerHTML = obj.ibge;
                 });
                 xhr.open("GET", url);
                 xhr.send();

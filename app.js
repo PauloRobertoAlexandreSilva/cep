@@ -9,17 +9,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (!('share' in navigator) || !('canShare' in navigator)) {
         console.log('Web Share API not supported in this environment.');
-        document.getElementById("share").style.display = "none";
+        document.getElementById("buttonShare").style.display = "none";
         return;
     } else {
-        document.getElementById("share").addEventListener("click", async () => {
+        document.getElementById("buttonShare").addEventListener("click", async () => {
             try {
-                const response = await fetch(imageUrl);
+                const response = await fetch('img/icon_180.png');
                 const blob = await response.blob();
                 const filesArray = [
                     new File(
                         [blob],
-                        'img/iconn_180.png',
+                        'img/icon_180.png',
                         { type: blob.type, lastModified: new Date().getTime() }
                     )
                 ];
@@ -37,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 await navigator.share(shareData);
             } catch (err) {
+                console.log(err);
             }
         });
 
