@@ -60,9 +60,9 @@ window.addEventListener("load", function() {
                     inputRua.innerHTML = obj.logradouro + " " + obj.complemento;
                     inputBairro.innerHTML = obj.bairro;
                     inputCidade.innerHTML = obj.localidade;
-                    inputUF.innerHTML = obj.estado + "(" + obj.uf + ")";
-                    inputDDD.innerHTML = obj.ddd;
-                    inputIBGE.innerHTML = obj.ibge;
+                    inputUF.innerHTML = obj.estado + " (" + obj.uf + ")";
+                    inputDDD.innerHTML = 'DDD: ' + obj.ddd;
+                    inputIBGE.innerHTML = 'IBGE: ' + obj.ibge;
                 });
                 xhr.open("GET", url);
                 xhr.send();
