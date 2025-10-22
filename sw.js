@@ -1,4 +1,4 @@
-const versao = '0.0.1';
+const versao = '0.0.2';
 const arquivos = [
     'favicon.ico',
     'offline.html',
@@ -12,7 +12,6 @@ const arquivos = [
     '/img/icon_144.png',
     '/img/icon_256.png',
     '/img/icon_512.png',
-    '/img/soundbars.webp',
     '/img/screenshot.webp',
 ];
 
