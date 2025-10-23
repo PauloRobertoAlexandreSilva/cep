@@ -4,7 +4,7 @@
     "app_name": "CEP",
     "theme_color": "#FAD606",
     "background_color": "#FAD606",
-    "display": "standalone",
+    "display": "fullscreen",
     "orientation": "portrait",
     "start_url": "index.html",
     "categories": ["productivity", "utilities", "social"],
