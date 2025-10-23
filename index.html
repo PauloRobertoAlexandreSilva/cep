@@ -117,7 +117,7 @@
         </div>
     </nav>
 
-    <div class="container" style="margin-top: 80px;">
+    <div class="container" class="mb-5" style="margin: 80px 0 10px;">
         <ul class="nav nav-pills" role="tablist">
             <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#divCEP">Consulta por CEP</a></li>
             <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#divEndereco">Consulta por Endereço</a></li>
@@ -125,35 +125,44 @@
 
         <div class="tab-content" style="margin-top: 40px;">
             <div id="divCEP" class="container tab-pane active">
-
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
                         <label for="inputCEP" class="form-label">CEP:</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text" class="form-control" id="inputCEP" name="inputCEP"  placeholder="00000000" value="" size="10" maxlength="10">
+                        <input type="text" class="form-control" id="inputCEP" name="inputCEP"  value="" size="10" maxlength="10">
                     </div>
                     <div class="col-auto">
-                        <button type="button" class="btn btn-info" id="btnConsultar">Consultar</button>
+                        <button type="button" class="btn btn-info" id="btnConsultarCEP">Consultar</button>
                     </div>
                 </div>
 
-                <div id="inputRua"></div>
-                <div id="inputBairro"></div>
-                <div id="inputCidade"></div>
-                <div id="inputUF"></div>
-                <div id="inputDDD"></div>
-                <div id="inputIBGE"></div>
+                <div id="divRua"></div>
+                <div id="divBairro"></div>
+                <div id="divMunicipio"></div>
+                <div id="divUF"></div>
+                <div id="divDDD"></div>
+                <div id="divIBGE"></div>
             </div>
 
             <div id="divEndereco" class="container tab-pane fade"><br>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <div id="divAlerta" class="alert alert-danger">
-                <strong>Erro!</strong> CEP inválido.
+                <select id="estados" class="form-select"><option value='0'>SELECIONE O ESTADO</option></select>
+                <select id="municipios" class="form-select"><option value='0'>SELECIONE O MUNICÍPIO</option></select>
+                <input type="text" class="form-control" id="inputRua" value="">
+                <button type="button" class="btn btn-info" id="btnConsultarEndereco">Consultar</button>
+                <div id="divResultado"></div>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <div id="divAlerta" class="alert alert-danger">
+        <strong>Erro!</strong> CEP inválido.
+    </div>
+
+    <div class="container row fixed-bottom" id="divFonte">
+        <div class="col-auto">Fontes:</div>
+        <div class="col-auto"><a target="_blank" href="https://viacep.com.br/">VIACEP</a></div>
+        <div class="col-auto"><a target="_blank" href="https://servicodados.ibge.gov.br/api/docs/localidades">IBGE</a></div>
+    </div>
 </body>
 </html>

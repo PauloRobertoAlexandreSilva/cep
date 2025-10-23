@@ -7,9 +7,11 @@
 
 body { background-color: var(--cor1); color: var(--cor2); font-weight: bolder; }
 input, button { font-weight: bolder !important;}
-nav, nav a span { background-color: var(--cor2); color:  var(--cor3); }
+nav, nav a span { background-color: var(--cor1); color:  var(--cor2); }
+select { margin-bottom: 5px;}
 
 #divAlerta { display: none;}
+#divFonte {  background-color: var(--cor1); }
 
 .splash-logo {
     z-index: 10;

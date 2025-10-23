@@ -1,4 +1,4 @@
-const versao = '0.0.2';
+const versao = '0.0.1';
 const arquivos = [
     'favicon.ico',
     'offline.html',
@@ -53,7 +53,7 @@ self.addEventListener('activate', event => {
                     const networkResponse = await fetch(event.request);
                     return networkResponse;
                 } catch (error) {
-                    return offline.html;
+                    return "offline.html";
                 }
             }
         })()
