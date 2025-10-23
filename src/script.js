@@ -108,7 +108,8 @@ window.addEventListener("load", function() {
     btnConsultarEndereco.addEventListener("click", function() {
         let estado = document.getElementById("estados").value;
         let municipio = document.getElementById("municipios").value;
-        let rua = inputRua.value;
+        let rua = inputRua.value.trim();
+        rua.replaceAll(" ", "%20")
 
         if(estado != 0 && municipio != 0 && rua != "") {
             let url =  "https://viacep.com.br/ws/" + estado + "/" + municipio + "/" + rua + "/json/";
