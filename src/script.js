@@ -39,18 +39,14 @@ window.addEventListener("load", function() {
 
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
-                const ws = "https://viacep.com.br/ws/";
-                let url = ws + cep + "/json/";
+                let url = "https://viacep.com.br/ws/" + cep + "/json/";
 
                 const xhr = new XMLHttpRequest();
                 xhr.addEventListener("loadstart", function(){
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    divRua.innerHTML="...";
-                    divBairro.innerHTML="...";
-                    divMunicipio.innerHTML="...";
-                    divUF.innerHTML="...";
-                    divDDD.innerHTML="...";
-                    divIBGE.innerHTML="...";
+                    divIBGE.innerHTML="AGUARDE...";
+                });
+                xhr.addEventListener('error', function () {
+                    divIBGE.innerHTML = 'Erro de rede ou na requisição.';
                 });
                 xhr.addEventListener("load", function(result) {
                     let obj = JSON.parse(result.target.response);
@@ -116,7 +112,11 @@ window.addEventListener("load", function() {
 
         if(estado != 0 && municipio != 0 && rua != "") {
             let url =  "https://viacep.com.br/ws/" + estado + "/" + municipio + "/" + rua + "/json/";
+            
             const xhr = new XMLHttpRequest();
+            xhr.addEventListener("loadstart", function(){
+                divResultado.innerHTML="AGUARDE...";
+            });
             xhr.addEventListener('error', function () {
                 divResultado.innerHTML = 'Erro de rede ou na requisição.';
             });
