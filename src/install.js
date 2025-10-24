@@ -7,6 +7,8 @@ window.addEventListener('load', event => {
     var deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', event => {
+        console.log("1");
+        
         //event.preventDefault();         // Prevents immediate prompt display
         deferredPrompt = event;
 
@@ -28,9 +30,9 @@ window.addEventListener('load', event => {
         });
     });
     window.onappinstalled = function() {
-        //console.log('👍', 'Obrigado por instalar nosso app!');
+        console.log('👍', 'Obrigado por instalar nosso app!');
     };
     window.addEventListener('appinstalled', event => {
-        //console.log('👍', 'app instalado', event);
+        console.log('👍', 'app instalado', event);
     });
 });

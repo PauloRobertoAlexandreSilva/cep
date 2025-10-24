@@ -1,4 +1,4 @@
-const versao = '0.0.1';
+const versao = '0.0.2';
 const arquivos = [
     'favicon.ico',
     'offline.html',

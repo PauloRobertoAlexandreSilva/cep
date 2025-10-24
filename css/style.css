@@ -2,13 +2,17 @@
     --cor1: #FAD606;
     --cor2: #003954;
     --cor3: #0180B7;
-    --cor4: #FB8C00;
 }
 
-body { background-color: var(--cor1); color: var(--cor2); font-weight: bolder; }
+html, body {
+    overscroll-behavior-inline: none;
+    overscroll-behavior: none;
+}
+
+body { background-color: var(--cor1) !important; color: var(--cor2) !important; font-weight: bolder; }
 input, button { font-weight: bolder !important;}
 nav, nav a span { background-color: var(--cor1); color:  var(--cor2); }
-select { margin-bottom: 5px;}
+select,input[type=text] { margin-bottom: 5px;}
 
 #divAlerta { display: none;}
 #divFonte {  background-color: var(--cor1); }
