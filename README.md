@@ -4,17 +4,7 @@ Esse é um aplicativo que utiliza HTML5, CSS e Javascript para consultar o CEP c
 
 Abra [CEP](https://paulorobertoalexandresilva.github.io/cep/) no seu `navegador` para ver o resultado
 
-
-#### GIT
----
-
-First, run the development server:
-
-```bash
-> git init
-
-> git remote add origin https://github.com/PauloRobertoAlexandreSilva/cep.git
-
-> git pull origin main
-```
 #### imagens
+<img src="img/tela_1.png">
+
+<img src="img/tela_2.png">
