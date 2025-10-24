@@ -1,18 +1,27 @@
-const versao = '0.0.2';
+const versao = '0.0.0';
 const arquivos = [
     'favicon.ico',
     'offline.html',
+    'img/aviso.png',
 
-    '/img/icon_16.png',
-    '/img/icon_32.png',
-    '/img/icon_57.png',
-    '/img/icon_60.png',
-    '/img/icon_72.png',
-    '/img/icon_76.png',
-    '/img/icon_144.png',
-    '/img/icon_256.png',
-    '/img/icon_512.png',
-    '/img/screenshot.webp',
+    'img/icon_16.png',
+    'img/icon_32.png',
+    'img/icon_57.png',
+    'img/icon_60.png',
+    'img/icon_72.png',
+    'img/icon_76.png',
+    'img/icon_96.png',
+    'img/icon_114.png',
+    'img/icon_120.png',
+    'img/icon_128.png',
+    'img/icon_144.png',
+    'img/icon_152.png',
+    'img/icon_180.png',
+    'img/icon_192.png',
+    'img/icon_256.png',
+    'img/icon_384.png',
+    'img/icon_512.png',
+    'img/screenshot.webp'
 ];
 
 self.addEventListener('install', event => {
