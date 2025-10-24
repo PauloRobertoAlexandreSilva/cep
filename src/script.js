@@ -15,7 +15,7 @@ window.addEventListener("load", function() {
 
     divCEP.focus();
 
-     function limpaFormulario() {
+    function limpaFormulario() {
         divRua.innerHTML="";
         divBairro.innerHTML="";
         divMunicipio.innerHTML="";
@@ -104,7 +104,10 @@ window.addEventListener("load", function() {
         xhr.open("GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + estado + "/municipios");
         xhr.send();
     }
-
+    document.getElementById("municipios").addEventListener("change", function(e) {
+        inputRua.focus();
+    });
+    
     btnConsultarEndereco.addEventListener("click", function() {
         let estado = document.getElementById("estados").value;
         let municipio = document.getElementById("municipios").value;
